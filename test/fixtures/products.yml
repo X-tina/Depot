@@ -11,3 +11,10 @@ two:
   description: MyText
   image_url: MyString
   price: 9.99
+
+Darsil:
+  title: Дарсил N 100#
+  description: ДАРСІЛ® Таблетки, вкриті оболонкою, по 22.5 мг № 10х10 у контурних чарункових упаковках у пачці
+  price: 32,79
+  image_url: http://www.apteka.ua/wp-content/uploads/2010/03/050310_2053.jpg
+
