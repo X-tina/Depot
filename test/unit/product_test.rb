@@ -12,18 +12,26 @@ class ProductTest < ActiveSupport::TestCase
     assert product.errors[:image_url].any?
   end
 
+  #test "title must be larger than 5 symbols" do
+   # product=Product.new(title: "Ditilin",
+    #                    description: "zzzzz",
+     #                   price: 1,
+      #                  image_url: Ditilin.jpg)
+    #product.title
+ # end
+
   test "product price must be positive" do
     product = Product.new(title:       "My Book Title",
                           description: "yyy",
                           image_url:   "zzz.jpg")
     product.price = -1
     assert product.invalid?
-    assert_equal "must be greater than or equal to 0.01", 
+    assert_equal "must be greater than 0.01", 
       product.errors[:price].join('; ')
 
     product.price = 0
     assert product.invalid?
-    assert_equal "must be greater than or equal to 0.01", 
+    assert_equal "must be greater than 0.01", 
       product.errors[:price].join('; ')
 
     product.price = 1
@@ -50,6 +58,8 @@ class ProductTest < ActiveSupport::TestCase
       assert new_product(name).invalid?, "#{name} shouldn't be valid"
     end
   end
+
+
 
   test "product isn't valid without a unique title- i18n" do
     product=Product.new(title: products(:Darsil).title,
