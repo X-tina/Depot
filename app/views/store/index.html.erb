@@ -1,18 +1,22 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
+
 <% end %>
 
-<h1>Medcine Online</h1>
+<h1>Catalog:</h1>
 
 <% @products.each do |product| %>
   <div class="entry">
     <%= image_tag(product.image_url) %>
     <h3><%= product.title %></h3>
-    <h><%= sanitize(product.description) %></h>
-    <div class="price_line">
+    <!--<h> <%= truncate(strip_tags(product.description), length: 80)%></h> -->
+    <!--<l><%= sanitize(product.description) %></l> -->
+    <l> <%=product.description %></l>
+     <div class="price_line">
 
 <!-- START:currency -->
 <!--	<span class="price"> <%= product.price %> </span> -->
+      <!--<span class="price"><%= number_to_currency(product.price, :unit => " грн.", :format => "%n%u") %></span> -->
       <span class="price"> <%= number_to_currency (product.price) %> </span >
       <!-- END:currency -->
     </div>

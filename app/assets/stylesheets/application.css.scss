@@ -10,16 +10,21 @@
 
 /* START_HIGHLIGHT */
 #banner {
+
   background: #9c9;
+
   padding: 10px;
   border-bottom: 2px solid;
+  
   font: small-caps 40px/40px "Times New Roman", serif;
   color: #282;
   text-align: center;
+  
 
   img {
     float: left;
   }
+
 }
 
 #notice {
@@ -29,22 +34,29 @@
   margin-bottom: 2em;
   background-color: #f0f0f0;
   font: bold smaller sans-serif;
+
 }
 
 #columns {
   background: #141;
 
+
   #main {
     margin-left: 17em;
     padding: 1em;
     background: white;
+
   }
 
   #side {
+    r{text-align: left;
+    text-size: small;
+    color: black;}
     float: left;
     padding: 1em 2em;
     width: 13em;
     background: #141;
+
 
     ul {
       padding: 0;
