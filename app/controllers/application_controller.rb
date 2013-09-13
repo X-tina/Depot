@@ -4,4 +4,14 @@ class ApplicationController < ActionController::Base
   def date_loaded
   	return Time.now
   end
+
+  private
+
+  def current_cart
+  	Cart.find(session[:cart_id])
+  	resque ActiveRecord::RecordNotFound
+  	cart=Cart.create
+  	session[:cart_id]=cart.id
+  	cart
+  end
 end

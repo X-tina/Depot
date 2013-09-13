@@ -16,9 +16,10 @@
 
 <!-- START:currency -->
 <!--	<span class="price"> <%= product.price %> </span> -->
-      <!--<span class="price"><%= number_to_currency(product.price, :unit => " грн.", :format => "%n%u") %></span> -->
-      <span class="price"> <%= number_to_currency (product.price) %> </span >
+      <span class="price"><%= number_to_currency(product.price, :unit => " грн.", :format => "%n%u") %></span> 
+      <!--<span class="price"> <%= number_to_currency (product.price) %> </span >-->
       <!-- END:currency -->
+      <%=button_to 'Add to cart', line_items_path(product_id: product) %>
     </div>
   </div>
 <% end %>
