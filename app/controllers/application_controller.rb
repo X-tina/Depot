@@ -9,9 +9,9 @@ class ApplicationController < ActionController::Base
 
   def current_cart
   	Cart.find(session[:cart_id])
-  	resque ActiveRecord::RecordNotFound
-  	cart=Cart.create
-  	session[:cart_id]=cart.id
-  	cart
-  end
+  	rescue ActiveRecord::RecordNotFound
+      cart = Cart.create
+      session[:cart_id] = cart.id
+      cart
+    end
 end
