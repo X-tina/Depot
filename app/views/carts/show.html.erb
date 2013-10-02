@@ -1,38 +1,47 @@
-<%if notice %>
-<p id="notice"><%= notice %></p>
+<% if notice %>
+<p id="notice"> <%= notice %> </p>
 <% end%>
+
 <div class="cart_title"> Your cart </div>
 
 <table>
 
-	<% @cart.line_items.each do |item| %>
-		<tr>
-			<td> <%=item.quantity %> &times; </td>
-			<td>  <%=item.product.title %> </td>
-			<td class= "Item_price"> <%=number_to_currency(item.total_price) %> </td>	
-		</tr>
-	<%end%>
+	<% for item in @cart.line_items %>
 
+		<%= form_for item do |f| %>
+
+			<tr>
+								
+				<td>  <%=item.product.title %> </td>
+				<td> <%=item.quantity %> &times; </td>
+				<td>
+					<!--<%= f.text_field :quantity, :size => 1 %> -->
+				</td>
+				<td class= "item_price"> <%=number_to_currency(item.product.price) %> </td>
+				<td class= "item_price"> <%=number_to_currency(item.total_price) %> </td>
+				<!--<td> <%= f.submit :value => "Update Qty" %> </td> -->
+				<td> <%=  button_to 'Remove', item, method: :delete  %> </td>
+			</tr>
+		
+		
+		<% end %>
+	<% end %>
+
+	
 	<tr class="total_line"> 
 		<td colspan="2"> Total </td>
+		<td>
 		<td class="total_cell"> <%=number_to_currency(@cart.total_price) %> </td>
+	</td>
+		
 	</tr>
+
 </table>
 
+<!--<%= link_to 'Back', store_path %> -->
+<tr>
+	<td> <%=button_to 'Back', store_path %> </td>
+	<td> <%=button_to 'Empty cart', @cart, method: :delete, confirm: 'Are you sure?' %>
+	</td>
+</tr>
 
-
-
-
-
-<!--<p> You've entered <%=pluralize @count, 'time' %></p> -->
-<!--<h2> Your Cart</h2>
-<ul>
-	<% @cart.line_items.each do |item| %>
-	  <!--<li> <%=item.product.title %> </li>
-	  <li> <%= item.quantity %> &times; <%= item.product.title %></li>
-	  
-	  <% end %>
-</ul>-->
-<%=button_to 'Empty cart', @cart, method: :delete, confirm: 'are you sure?' %>
-<!--<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %> -->

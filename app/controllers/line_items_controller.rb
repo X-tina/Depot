@@ -2,7 +2,8 @@ class LineItemsController < ApplicationController
   # GET /line_items
   # GET /line_items.json
   def index
-    @line_items = LineItem.all
+    @line_items = LineItem.all.order(:title) # не получается отсортировать список товарных позиций в корзине
+    #@products = Product.order(:title)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,14 +45,16 @@ class LineItemsController < ApplicationController
   
     @cart = current_cart
     product = Product.find(params[:product_id])
+    
     #@line_item = @cart.line_items.build(product: product)
     
     @line_item = @cart.add_product(product.id)
-    
+    #session[:counter] = 0  
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to @line_item.cart }
         format.json { render json: @line_item, status: :created, location: @line_item }
+
       else
         format.html { render action: "new" }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
@@ -59,14 +62,19 @@ class LineItemsController < ApplicationController
     end
   end
 
-  # PUT /line_items/1
-  # PUT /line_items/1.json
+
+
+
   def update
     @line_item = LineItem.find(params[:id])
 
     respond_to do |format|
       if @line_item.update_attributes(params[:line_item])
-        format.html { redirect_to @line_item, notice: 'Line item was successfully updated.' }
+        #if (@line_item.quantity == 0)
+         # @line_item.destroy
+        #end
+        #format.html { redirect_to @line_item, notice: 'Line item was successfully updated.' }
+        format.html {redirected_to(@line_item.cart, notice: 'Removed')}
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -77,13 +85,33 @@ class LineItemsController < ApplicationController
 
   # DELETE /line_items/1
   # DELETE /line_items/1.json
+  
   def destroy
     @line_item = LineItem.find(params[:id])
+   # @line_item.destroy
+  if @line_item.quantity > 1
+    @line_item.update_attributes(:quantity => @line_item.quantity-1)
+  else
     @line_item.destroy
-
+  end
     respond_to do |format|
-      format.html { redirect_to line_items_url }
-      format.json { head :ok }
+      format.html {redirect_to (cart_url(session[:cart_id]))}
+      #format.html { redirect_to line_items_url }
+      #format.json { head :ok }
+      #format.html {redirect_to(store_url, :notice => 'Line Item Removed')}
+      #if current_cart.line_items.empty?
+       # format.html { redirect_to(store_url, notice: 'Your cart is empty') }
+      #else
+       # format.html { redirect_to(@line_item.cart, :notice => 'Item has been removed from your cart.') }       # format.html { redirect_to(current_cart, notice: 'Item Removed') }
+      #end
+
+     # if LineItem.find_by_cart_id (@line_item.cart_id).nil?
+      #  format.html {redirect_to store_url, notice: 'your cart is currently empty'}
+      #else format.html {redirect_to current_cart, notice: 'Line item removed'}
+      #end
+
+      #format.html {redirect_to :back}
+      format.json {head :ok}
     end
   end
 end
