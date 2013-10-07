@@ -1,47 +1,9 @@
 <% if notice %>
 <p id="notice"> <%= notice %> </p>
 <% end%>
+<%=render @cart %>
 
-<div class="cart_title"> Your cart </div>
 
-<table>
 
-	<% for item in @cart.line_items %>
 
-		<%= form_for item do |f| %>
-
-			<tr>
-								
-				<td>  <%=item.product.title %> </td>
-				<td> <%=item.quantity %> &times; </td>
-				<td>
-					<!--<%= f.text_field :quantity, :size => 1 %> -->
-				</td>
-				<td class= "item_price"> <%=number_to_currency(item.product.price) %> </td>
-				<td class= "item_price"> <%=number_to_currency(item.total_price) %> </td>
-				<!--<td> <%= f.submit :value => "Update Qty" %> </td> -->
-				<td> <%=  button_to 'Remove', item, method: :delete  %> </td>
-			</tr>
-		
-		
-		<% end %>
-	<% end %>
-
-	
-	<tr class="total_line"> 
-		<td colspan="2"> Total </td>
-		<td>
-		<td class="total_cell"> <%=number_to_currency(@cart.total_price) %> </td>
-	</td>
-		
-	</tr>
-
-</table>
-
-<!--<%= link_to 'Back', store_path %> -->
-<tr>
-	<td> <%=button_to 'Back', store_path %> </td>
-	<td> <%=button_to 'Empty cart', @cart, method: :delete, confirm: 'Are you sure?' %>
-	</td>
-</tr>
 

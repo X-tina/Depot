@@ -45,14 +45,12 @@ class LineItemsController < ApplicationController
   
     @cart = current_cart
     product = Product.find(params[:product_id])
-    
-    #@line_item = @cart.line_items.build(product: product)
-    
     @line_item = @cart.add_product(product.id)
-    #session[:counter] = 0  
+ 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item.cart }
+        format.html { redirect_to store_url }
+        format.js {@current_item = @line_item}
         format.json { render json: @line_item, status: :created, location: @line_item }
 
       else
@@ -95,7 +93,8 @@ class LineItemsController < ApplicationController
     @line_item.destroy
   end
     respond_to do |format|
-      format.html {redirect_to (cart_url(session[:cart_id]))}
+      #format.html {redirect_to (cart_url(session[:cart_id]))}
+      format.html {redirect_to (store_url(session[:cart_id]))}
       #format.html { redirect_to line_items_url }
       #format.json { head :ok }
       #format.html {redirect_to(store_url, :notice => 'Line Item Removed')}

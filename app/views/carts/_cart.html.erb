@@ -1,0 +1,21 @@
+<p> <div class="cart_title"> Your cart </div>  </p>
+
+<table>
+	<%=render(cart.line_items) %>
+
+		
+	<tr class="total_line"> 
+		<td colspan="2"> Total </td>
+		
+		<td class="total_cell"> <%=number_to_currency(cart.total_price, :unit => " грн.", :format => "%n%u") %> </td>
+	
+		
+	</tr>
+
+</table>
+
+<tr>
+	<!--<td> <%=button_to 'Back', store_path %> </td>-->
+	<td> <%=button_to 'Empty cart', cart, method: :delete, confirm: 'Are you sure?' %>
+	</td>
+</tr>

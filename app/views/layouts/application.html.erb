@@ -4,29 +4,34 @@
 <!--You've been here <%= pluralize(@counter, "time") %>-->
 <!-- START_HIGHLIGHT -->
   <title> FRA-M Online Store </title>
-<!-- END_HIGHLIGHT -->
-  <%= stylesheet_link_tag "application" %> <!-- <label id="code.slt"/> -->
-  <%= javascript_include_tag "application" %> <!-- <label id="code.jlt"/> -->
-  <%= csrf_meta_tags %> <!-- <label id="code.csrf"/> -->
+
+  <%= stylesheet_link_tag "application" %> 
+  <%= javascript_include_tag "application" %> 
+  <%= csrf_meta_tags %>
+
 </head>
-<!-- END:head -->
+
 <body class= "<%= controller.controller_name %>">
-<!-- START_HIGHLIGHT -->
+
 
 <div id="banner">
 
   <!--<r> <%=date_loaded %> </r> -->
 	<!--<%= image_tag ("logo.png") %> -->
   
-	<%= @page_title || "Medcine Online" %>  <!-- <label id="code.depot. e.title"/> -->
+	<%= @page_title || "Medcine Online" %>  
 
 </div>
 
 <div id= "columns">
-
 	<div id="side">
-   
-   <r> <%= l date_loaded, :format => :long %> </r>
+      <r> <%= l date_loaded, :format => :long %> </r>
+
+      <div id="cart">
+        <%= render @cart %>
+      </div>
+  
+
 		<ul>
         <li><a href="http://www....">Home</a></li>
         <li><a href="http://www..../faq">Questions</a></li>
