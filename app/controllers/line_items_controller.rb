@@ -2,7 +2,7 @@ class LineItemsController < ApplicationController
   # GET /line_items
   # GET /line_items.json
   def index
-    @line_items = LineItem.all.order(:title) # не получается отсортировать список товарных позиций в корзине
+    @line_items = LineItem.all # не получается отсортировать список товарных позиций в корзине
     #@products = Product.order(:title)
 
     respond_to do |format|
@@ -50,8 +50,7 @@ class LineItemsController < ApplicationController
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to store_url }
-        format.js
-        #format.js {@current_item = @line_item}
+        format.js {@current_item = @line_item}
         format.json { render json: @line_item, status: :created, location: @line_item }
 
       else
@@ -72,8 +71,8 @@ class LineItemsController < ApplicationController
         #if (@line_item.quantity == 0)
          # @line_item.destroy
         #end
-        #format.html { redirect_to @line_item, notice: 'Line item was successfully updated.' }
-        format.html {redirected_to(@line_item.cart, notice: 'Removed')}
+        format.html { redirect_to @line_item, notice: 'Line item was successfully updated.' }
+        #format.html {redirect_to(@line_item.cart, notice: 'Removed')}
         format.json { head :ok }
       else
         format.html { render action: "edit" }

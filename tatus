@@ -1,0 +1,71 @@
+commit e9c81096b6f713d60b6ae29cfc15f78ab456b34c
+Author: Kristine Yefimtseva <kristinka89@gmail.com>
+Date:   Wed Oct 16 16:10:23 2013 +0300
+
+    Adding_By_click_image
+
+commit b4d122147a822723fedf75222f287232a6ea7abe
+Author: Kristine Yefimtseva <kristinka89@gmail.com>
+Date:   Wed Oct 16 15:40:27 2013 +0300
+
+    Hidden_cart
+
+commit 4be41412b6627f3c2ce5bf378988825d005aaa89
+Author: Kristine Yefimtseva <kristinka89@gmail.com>
+Date:   Mon Oct 7 22:44:17 2013 +0300
+
+    Cart_jquery_rm
+
+commit 6813a00497db981c4f8b2fb52046752cf31767ad
+Author: Kristine Yefimtseva <kristinka89@gmail.com>
+Date:   Mon Oct 7 16:54:35 2013 +0300
+
+    Cart_jquery
+
+commit 1685764af6a893c24bf9586f5f21655acaa82f38
+Author: Kristine Yefimtseva <kristinka89@gmail.com>
+Date:   Wed Oct 2 16:01:51 2013 +0300
+
+    A smart cart_delete items by one
+
+commit a57378a7f20a7bff770dbc197196ab226803eb24
+Author: Kristine Yefimtseva <kristinka89@gmail.com>
+Date:   Wed Sep 25 15:58:16 2013 +0300
+
+    A smart cart
+
+commit b584f48462c28c3a619b7880340ae4f20716b468
+Author: Kristine Yefimtseva <kristinka89@gmail.com>
+Date:   Wed Sep 18 16:29:20 2013 +0300
+
+    Cart. The end of the chapter
+
+commit 04d6cb772be33e0355761d961476beab0fa4c584
+Author: Kristine Yefimtseva <kristinka89@gmail.com>
+Date:   Fri Sep 13 19:06:11 2013 +0300
+
+    Cart
+
+commit fd86097db8c8b934a07d165c99c9368743f5f085
+Author: Kristine Yefimtseva <kristinka89@gmail.com>
+Date:   Sun Sep 8 21:22:30 2013 +0300
+
+    change price_2 before new units
+
+commit d0a7485c20cd42c77c5137cd7f81f6ca5b575e0e
+Author: Kristine Yefimtseva <kristinka89@gmail.com>
+Date:   Sat Sep 7 17:08:15 2013 +0300
+
+    Change price
+
+commit c8d9e84352d4eaab50cc67f1b24bbea7cd26f73b
+Author: Kristine Yefimtseva <kristinka89@gmail.com>
+Date:   Thu Aug 15 11:17:29 2013 +0300
+
+    Validation
+
+commit 70f24eec89d616d72f61c6e08438a0f1babd31bb
+Author: Kristine Yefimtseva <kristinka89@gmail.com>
+Date:   Fri Jul 26 12:15:46 2013 +0300
+
+    Depot Scaffold
