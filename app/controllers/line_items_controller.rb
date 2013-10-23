@@ -114,26 +114,61 @@ class LineItemsController < ApplicationController
     end
   end
 
-  def decrement
-    @cart = current_cart
+  #def decrement
+   # @cart = current_cart
 
     #1 way: decrement throught method in @cart
-    @line_item = @cart.decrement_line_item_path_quantity(params[:id]) #passing in line_item.id
+    #@line_item = @cart.decrement_line_item_path_quantity(params[:id]) #passing in line_item.id
 
     #2 way: decrement throught method in @line_item
     #@line_item = @cart.line_items.find_by_id(params[:id])
     #@line_item = @line_item.decrement_quantity(@line_item.id)
-    respond_to do |format|
+    #respond_to do |format|
+     # if @line_item.save
+      #  format.html {redirect_to store_path, notice: 'Line item was successfully updated.'}
+       # format.js {@current_item = @line_item}
+        #format.json {head :ok}
+      #else
+       # format.html {render avtion: "edit"}
+        #format.js {@current_item=@line_item}
+        #format.json {render json: @line_item.errors, status: :unprocessable_entity}
+      #end
+   # end
+ # end
+
+  def decrease
+    @cart= current_cart
+    before_action :set_cart, only: [:create, :decrease]
+    @line_item=@cart.decrease(params[:id])
+
+    respont_to do |format|
       if @line_item.save
         format.html {redirect_to store_path, notice: 'Line item was successfully updated.'}
         format.js {@current_item = @line_item}
-        format.json {head :ok}
+        formta.json {head :ok}
       else
-        format.html {render avtion: "edit"}
-        format.js {@current_item=@line_item}
+        format.html {render action: "edit"}
         format.json {render json: @line_item.errors, status: :unprocessable_entity}
       end
     end
-    
   end
+
+ def increase
+  @cart = current_cart
+
+  @line_item = @cart.increase(params[:id])
+
+  respont_to do |format|
+    if @line_item.save
+        format.html { redirect_to store_path, notice: 'Line item was successfully updated.' }
+        format.js   { @current_item = @line_item }
+        format.json { head :ok }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @line_item.errors, status: :unprocessable_entity }
+      end
+    end
+  
+ end
+
 end

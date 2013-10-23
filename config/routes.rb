@@ -61,8 +61,10 @@ Depot::Application.routes.draw do
       #member do
         #put 'decrement'
       #end
-      put 'decrement', on: :member
+      #put 'decrement', on: :member
       #post 'decrement', on: member
+      put 'decrease', on: :member
+      put 'increase', on: :member
    end
    #resources :carts
   # See how all your routes lay out with "rake routes"
