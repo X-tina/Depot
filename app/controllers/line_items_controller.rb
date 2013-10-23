@@ -113,4 +113,27 @@ class LineItemsController < ApplicationController
       format.json {head :ok}
     end
   end
+
+  def decrement
+    @cart = current_cart
+
+    #1 way: decrement throught method in @cart
+    @line_item = @cart.decrement_line_item_path_quantity(params[:id]) #passing in line_item.id
+
+    #2 way: decrement throught method in @line_item
+    #@line_item = @cart.line_items.find_by_id(params[:id])
+    #@line_item = @line_item.decrement_quantity(@line_item.id)
+    respond_to do |format|
+      if @line_item.save
+        format.html {redirect_to store_path, notice: 'Line item was successfully updated.'}
+        format.js {@current_item = @line_item}
+        format.json {head :ok}
+      else
+        format.html {render avtion: "edit"}
+        format.js {@current_item=@line_item}
+        format.json {render json: @line_item.errors, status: :unprocessable_entity}
+      end
+    end
+    
+  end
 end
