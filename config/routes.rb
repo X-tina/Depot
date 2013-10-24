@@ -57,6 +57,7 @@ Depot::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
    root to: 'store#index', as:  'store'
+   
    resources :line_items do
       #member do
         #put 'decrement'

@@ -87,11 +87,11 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item = LineItem.find(params[:id])
    # @line_item.destroy
-  if @line_item.quantity > 1
-    @line_item.update_attributes(:quantity => @line_item.quantity-1)
-  else
+  #if @line_item.quantity > 1
+   # @line_item.update_attributes(:quantity => @line_item.quantity-1)
+  #else
     @line_item.destroy
-  end
+  #end
     respond_to do |format|
       #format.html {redirect_to (cart_url(session[:cart_id]))}
       format.html {redirect_to (store_url(session[:cart_id]))}
@@ -138,14 +138,15 @@ class LineItemsController < ApplicationController
 
   def decrease
     @cart= current_cart
-    before_action :set_cart, only: [:create, :decrease]
+
+    #before_action :set_cart, only: [:create, :decrease]
     @line_item=@cart.decrease(params[:id])
 
-    respont_to do |format|
+    respond_to do |format|
       if @line_item.save
         format.html {redirect_to store_path, notice: 'Line item was successfully updated.'}
         format.js {@current_item = @line_item}
-        formta.json {head :ok}
+        format.json {head :ok}
       else
         format.html {render action: "edit"}
         format.json {render json: @line_item.errors, status: :unprocessable_entity}
@@ -155,10 +156,10 @@ class LineItemsController < ApplicationController
 
  def increase
   @cart = current_cart
-
+  #before_action :set_cart, only: [:create, :increase]
   @line_item = @cart.increase(params[:id])
 
-  respont_to do |format|
+  respond_to do |format|
     if @line_item.save
         format.html { redirect_to store_path, notice: 'Line item was successfully updated.' }
         format.js   { @current_item = @line_item }
