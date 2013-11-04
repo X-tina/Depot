@@ -1,0 +1,12 @@
+OrderNotifier#recieved
+
+<%= @greeting %>, find me in app/views/app/views/order_notifier/recieved.text.erb
+
+Mr(s) <%= @order.name%>
+
+Here is Your Order:
+<%= render @order.line_items%>
+When your order is shipped, we'll send You e-mail.
+
+Best wishes 
+The Administration

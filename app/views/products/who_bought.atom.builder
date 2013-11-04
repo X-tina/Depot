@@ -3,7 +3,7 @@ atom_feed do |feed|
 
   latest_order = @product.orders.sort_by(&:updated_at).last
   feed.updated( latest_order && latest_order.updated_at )
-@product.orders.each do |order|
+  @product.orders.each do |order|
     feed.entry(order) do |entry|
       entry.title "Order #{order.id}"
       entry.summary type: 'xhtml' do |xhtml|
