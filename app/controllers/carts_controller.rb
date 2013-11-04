@@ -17,10 +17,11 @@ class CartsController < ApplicationController
     begin
       @cart = Cart.find(params[:id])
       
-      rescue ActiveRecord::RecordNotFound
+      rescue ActiveRecord::RecordNotFound => e
 
         #logger.error "Попытка доступа к несуществующей корзине #{params[:id]}"
         logger.error "Attempt to access invalid cart #{params[:id]}"
+        OrderNotifier.error_occured(e).deliver
         #redirect_to store_url, notice: "Несуществующая корзина"
         redirect_to store_url, notice: 'Invalid cart'
       else 

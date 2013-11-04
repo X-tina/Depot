@@ -24,4 +24,9 @@ class OrderNotifier < ActionMailer::Base
     @oreder = order
     mail to: order.email, subject: 'Your oreder was shipped'
   end
+def error_occured(error)
+  @error = error
+  mail to: "admin@example.com", subject: 'Depot App Error Incident' 
+end
+
 end
