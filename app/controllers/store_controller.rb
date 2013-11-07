@@ -1,5 +1,5 @@
 class StoreController < ApplicationController
-  
+  skip_before_filter :authorize
   #def visit_count
   #	if session[:counter].nill?
   #		session[:counter]=0

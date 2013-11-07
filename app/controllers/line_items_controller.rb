@@ -1,7 +1,7 @@
 class LineItemsController < ApplicationController
   # GET /line_items
   # GET /line_items.json
-   
+   skip_before_filter :authorize, only: [:create, :decrease, :increase]
   def index
     @line_items = LineItem.all # не получается отсортировать список товарных позиций в корзине
     #@products = Product.order(:title)
