@@ -33,9 +33,6 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
-    @user = User.find(params[:id])
-  end
 
   # POST /users
   # POST /users.json
@@ -56,18 +53,37 @@ class UsersController < ApplicationController
 
   # PUT /users/1
   # PUT /users/1.json
+
+  def edit
+    @user = User.find(params[:id])
+    params[:action] = :edit
+  end
+
   def update
     @user = User.find(params[:id])
-
+    if @user.authenticate(params[:user][:current_password])
+      params[:user].delete :current_password
+   
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to users_url, 
-          notice: 'Data was successfully updated.' }
+        format.html { redirect_to users_url, notice: "User #{@user.name} was successfully updated." }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
+    end
+  else
+    redirect_to edit_user_path(@user), notice: 'Current password is incorrect'
+
+      #if @user.update_attributes(params[:user])
+       # format.html { redirect_to users_url, 
+        #  notice: 'Data was successfully updated.' }
+        #format.json { head :ok }
+      #else
+       # format.html { render action: "edit" }
+        #format.json { render json: @user.errors, status: :unprocessable_entity }
+      #end
     end
   end
 
@@ -75,8 +91,13 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
-
+    begin
+      @user.destroy
+      flash[:notice] = "User #{User.name} deleted}"
+    rescue Exceptions => e
+      flash[:notice] = e.message
+    end
+    
     respond_to do |format|
       format.html { redirect_to users_url }
       format.json { head :ok }
