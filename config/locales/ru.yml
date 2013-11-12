@@ -1,0 +1,15 @@
+ ru:
+ layouts:
+    application:
+      #title:       "Medcine Online"
+      #home:        "Главная"
+      #questions:   "Вопросы"
+      #news:        "новости"
+      #contact:     "Контакты"
+      
+      title:       "Publicaciones de Pragmatic"
+      home:        "Inicio"
+      questions:   "Preguntas"
+      news:        "Noticias"
+      contact:     "Contacto"
+
