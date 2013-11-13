@@ -2,12 +2,13 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
 
-ruby '1.9.3'
+#ruby '1.9.3'
+ruby "1.9.3"
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 group :test, :development do
-  gem 'sqlite3'
+  #gem 'sqlite3'
 end
 
 #gem 'jquery-ui-rails'
@@ -35,6 +36,8 @@ end
 group :production do
   gem 'pg', '0.12.2'
 end
+
+gem 'rails_12factor', group: :production
 
 group :test do
   # Pretty printed test output
