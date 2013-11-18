@@ -8,7 +8,7 @@ ruby "1.9.3"
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 group :test, :development do
-  #gem 'sqlite3'
+  gem 'sqlite3'
 end
 
 #gem 'jquery-ui-rails'
@@ -22,7 +22,7 @@ group :assets do
 end
 
  gem 'jquery-rails'
- 
+ gem 'rails-i18n'
  gem 'thin'
 # Use unicorn as the web server
 # gem 'unicorn'

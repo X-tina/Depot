@@ -6,7 +6,7 @@ class OrderNotifier < ActionMailer::Base
   #
   #   en.order_notifier.recieved.subject
   #
-  def recieved(order)
+  def received(order)
     #@greeting = "Hi"
     @order = order
     #mail to: "to@example.org"

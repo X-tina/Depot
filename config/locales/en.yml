@@ -1,12 +1,70 @@
 
 en:
-layouts:
+
+ layouts:
     application:
-      title:       "Medcine Online"
-      home:        "Home"
-      questions:   "Questions"
-      news:        "News"
-      contact:     "Contacts"
+      title: 		"Medcine Online"
+      home: 		"Home"
+      questions: 	"Questions"
+      news: 		"News"
+      contact: 		"Contacts"
+
+ store:
+    index:
+      title: 		"Catalog:"
+      add_to_cart:  "Add to Cart"
+
+
+ carts:
+    cart:
+      title:       "Your Cart"
+      empty:       "Empty cart"
+      checkout:    "Checkout"
+      total: 	   "Total:"
+      sure: 	   "Are you sure?"
+      cancel: 	   "Cancel Order"
+
+ number:
+    currency:
+      format:
+        unit: "$"
+        precision: 2
+        separator: '.'
+        delimeter: ','
+        format: '%u%n'
+
+ orders:
+    new:
+      legent: "Please, Enter Yor Details"
+    form:
+      name: "Name"
+      adress: "Adress"
+      pay_type: "Pay type"
+      pay_prompt_html: "Select a payment method"
+      place_order: "Place order"
+
+
+
+
+ thanks: "Thank you for your oreder"
+
+
+ 
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -8,8 +8,13 @@ class StoreController < ApplicationController
   #end
 
   def index
-  	@products = Product.order(:title)
-    @cart = current_cart
+  	
+    if params[:set_locale]
+        redirect_to store_path(locale: params[:set_locale])
+    else
+        @products = Product.order(:title)
+        @cart = current_cart
+    end
     #@count=visit_count
     #@counter = session[:counter]
     #@counter.nil? @counter = 1 : #@counter+=1

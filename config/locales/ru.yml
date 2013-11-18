@@ -1,15 +1,69 @@
- ru:
- layouts:
-    application:
-      #title:       "Medcine Online"
-      #home:        "Главная"
-      #questions:   "Вопросы"
-      #news:        "новости"
-      #contact:     "Контакты"
-      
-      title:       "Publicaciones de Pragmatic"
-      home:        "Inicio"
-      questions:   "Preguntas"
-      news:        "Noticias"
-      contact:     "Contacto"
+ru:
 
+  layouts:
+    application:
+      title: "Medcine Online"
+      home: "Главная"
+      questions: "Вопросы"
+      news: "Новости"
+      contact: "Контакты"
+
+  store:
+    index:
+      title: "Каталог:"
+      add_to_cart: "В корзину"
+
+ 
+  carts:
+    cart:
+      title:       "Ваша корзина:"
+      empty:       "Очистить"
+      checkout:    "Оформить"
+      total:       "К оплате:"    
+      sure:        "Вы уверены?"
+      cancel:      "Отменить заказ"
+
+
+  number:
+    currency:
+      format:
+        unit: "грн"
+        precision: 2
+        separator: '.'
+        delimeter: ','
+        format: '%n&nbsp;%u'
+
+  orders:
+    new:
+      legent: "Пожалуйста, введите свои данные"
+    form:
+      name: "Имя"
+      adress: "Адрес"
+      pay_type: "Способ оплаты"
+      pay_prompt_html: "Выберете способ оплаты"
+      place_order: "Разместить заказ"
+
+
+  activerecord:
+    models:
+      order: "Заказ"
+    attributes:
+      order:
+        adress: 'Адрес'
+        name: 'Имя'
+        pay_type: 'Способ оплаты'
+    errors:
+      messages:
+        inclusion: 'Не выбран метод оплаты'
+        blank: 'Данные не введены'     
+
+  errors:
+    template:
+      body: "Следующие ошибки:"
+      header:
+        one: "1 ошибка в заполнении формы %{model}"
+        other: "Ошибки %{count} в заполнении формы %{model}"
+     
+
+ 
+  thanks: 'Спасибо за Ваш заказ!'
