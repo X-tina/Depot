@@ -43,6 +43,8 @@ ru:
       pay_prompt_html: "Выберете способ оплаты"
       place_order: "Разместить заказ"
 
+  thanks: 'Спасибо за Ваш заказ!'
+
 
   activerecord:
     models:
@@ -66,4 +68,4 @@ ru:
      
 
  
-  thanks: 'Спасибо за Ваш заказ!'
+ # thanks: 'Спасибо за Ваш заказ!'
